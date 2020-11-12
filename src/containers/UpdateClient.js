@@ -46,7 +46,7 @@ export default function UpdateClient({ route, navigation, ...rest }) {
     /**
      * Props de los componentes
      */
-    let AlturaInputProps = {
+    let NameInputProps = {
         placeholder: "Nuevo nombre",
         placeholderTextColor: COLOR,
         style: styles.textInput,
@@ -66,7 +66,7 @@ export default function UpdateClient({ route, navigation, ...rest }) {
     return (
         <View style={{ ...styles.container }}>
             <Text style={styles.txtNewPhone}>Nuevo nombre</Text>
-            <TextInput {...AlturaInputProps} />
+            <TextInput {...NameInputProps} />
             <Button {...ButtonProps} />
         </View>
     );
