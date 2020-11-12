@@ -81,7 +81,7 @@ export default function NewMeasure({ route, navigation, ...rest }) {
 
     return (
         <View style={{ ...styles.container }}>
-            <Text style={styles.txtNewPhone}>Nueva medida</Text>
+            <Text style={styles.txtNewMeasure}>Nueva medida</Text>
             <TextInput {...AlturaInputProps} />
             <TextInput {...CinturaInputProps} />
             <Button {...ButtonProps} />
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: BG_COLOR,
     },
-    txtNewPhone: {
+    txtNewMeasure: {
         color: COLOR,
         fontSize: 28,
         fontWeight: "bold",
