@@ -1,7 +1,7 @@
 // Contenedores
 export { default as Home } from "./HomeScreen";
 export { default as About } from "./MisDatos";
-export { default as AuthLoading } from "./SesionActiva";
+export { default as AuthLoading } from "./VerificarSesion";
 export { default as VistaMensajes } from "./VistaMensajes";
 
 // Formularios
