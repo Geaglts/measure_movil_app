@@ -1,8 +1,9 @@
 import { ApolloClient, HttpLink, InMemoryCache } from "apollo-client-preset";
 import { setContext } from "apollo-link-context";
 import { getToken } from "./token";
+import { LOCAL_GRAPHQL_URI } from "@env";
 
-const APOLLO_SERVER_URL = "http://localhost:4000/";
+const APOLLO_SERVER_URL = LOCAL_GRAPHQL_URI;
 
 const httpLink = new HttpLink({
     uri: APOLLO_SERVER_URL,
