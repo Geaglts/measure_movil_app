@@ -8,5 +8,5 @@ export { default as VistaMensajes } from "./VistaMensajes";
 export { default as NuevoCliente } from "./Forms/NuevoCliente";
 export { default as LoginRegistro } from "./LoginRegistro";
 export { default as NuevoTelefono } from "./NewPhone";
-export { default as UpdateClientForm } from "./Forms/UpdateClientForm";
+export { default as UpdateClientForm } from "./UpdateClient";
 export { default as NuevaMedida } from "./NewMeasure";
