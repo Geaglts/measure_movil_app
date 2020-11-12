@@ -77,6 +77,9 @@ const styles = StyleSheet.create({
     },
 });
 
+/**
+ * Valores iniciales del formulario
+ */
 let initialValues = {
     name: "",
     phone: "",
@@ -84,6 +87,9 @@ let initialValues = {
     waist: "",
 };
 
+/**
+ * Argumentos de los componentes
+ */
 let Args = {
     InputNameArgs: {
         placeholder: "Nombre",
@@ -110,6 +116,9 @@ let Args = {
     },
 };
 
+/**
+ * Esta funcion le asigna las propiedades de value y onChangeText a los inputs
+ */
 function setNewArgs(args, values, key, handleChange) {
     let argsKeys = Object.keys(args);
     let valuesKeys = Object.keys(initialValues);
