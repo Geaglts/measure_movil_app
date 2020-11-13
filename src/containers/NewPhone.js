@@ -75,7 +75,7 @@ export default function NewPhone({ route, navigation }) {
     let RadioButtonProps = {
         PROP: phoneTypes,
         selected: setPhoneType,
-        def: phoneTypeParam.id,
+        initial: phoneTypeParam.id,
     };
 
     let TextButtonProps = {

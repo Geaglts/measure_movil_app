@@ -5,7 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 export default function Contenedor(props) {
     return (
         <LinearGradient
-            colors={["#2ba6ff", "#2bffed"]}
+            colors={["#c7efcf", "#d6d1b1"]}
             style={{ ...styles.container }}
         >
             {props.children}

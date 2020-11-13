@@ -12,11 +12,15 @@ import { HOME_NAVIGATOR } from "../navigations/NameScreens";
 let changeButtonText = (act = false) => (act ? "Actualizar" : "Agregar");
 
 export default function NewMeasure({ route, navigation, ...rest }) {
-    let [values, setValues] = useState({ waist: "", height: "" });
+    let [values, setValues] = useState({
+        waist: route.params.waist || "",
+        height: route.params.height || "",
+    });
     /**
      * Mutaciones y Queries de Graphql
      */
     const [addMeasure] = useMutation(Graphql.Mutation.ADD_MEASURE);
+    const [updateMeasure] = useMutation(Graphql.Mutation.UPDATE_MEASURE);
     /**
      * Variables enviadas desde la lista de medidas
      */
@@ -40,6 +44,9 @@ export default function NewMeasure({ route, navigation, ...rest }) {
             };
 
             if (act) {
+                variables["measureId"] = route.params.measureId;
+                await updateMeasure({ variables });
+                navigation.navigate(HOME_NAVIGATOR);
             } else {
                 await addMeasure({ variables });
                 navigation.navigate(HOME_NAVIGATOR);
@@ -97,6 +104,22 @@ const Graphql = {
                 addMeasure(
                     clientId: $clientId
                     measures: { height: $height, waist: $waist }
+                )
+            }
+        `,
+        UPDATE_MEASURE: gql`
+            mutation(
+                $measureId: ID!
+                $clientId: ID!
+                $height: Int!
+                $waist: Int!
+            ) {
+                updateMeasure(
+                    measureData: {
+                        measureId: $measureId
+                        clientId: $clientId
+                        measures: { height: $height, waist: $waist }
+                    }
                 )
             }
         `,

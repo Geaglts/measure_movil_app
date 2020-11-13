@@ -7,9 +7,9 @@ import {
     NuevoClienteBtn,
     SearchBar,
     Contenido,
-    TargetaCliente,
 } from "./componentes";
 import { Cargando } from "../../components";
+import TargetaCliente from "../TargetaCliente";
 
 import * as Graphql from "./graphql";
 import { isSearched } from "./funciones";
@@ -79,7 +79,7 @@ export default function index(props) {
 
     let TargetaClienteArgs = {
         navigation: props.navigation,
-        utilsToRefetch: {
+        updateList: {
             setClientes,
             refetch,
         },
@@ -98,7 +98,7 @@ export default function index(props) {
                     <Cargando />
                 ) : (
                     clientes.filter(isSearched(searchValue)).map((cliente) => {
-                        TargetaClienteArgs["data"] = cliente;
+                        TargetaClienteArgs["client"] = cliente;
                         TargetaClienteArgs["delete"] = onDelete(cliente.id);
                         TargetaClienteArgs["update"] = onUpdate(cliente);
 

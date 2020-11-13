@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     cabecera: {
-        fontSize: 28,
+        fontSize: 26,
         color: "#FE5F55",
         fontWeight: "bold",
         letterSpacing: 1,
@@ -98,40 +98,35 @@ let eliArgs = {
     style: styles.iconButtonContainer,
 };
 
-/**
- * Funciones varias
- */
-const isMain = (activo) => (activo ? "Actual" : "Anterior");
-
 export default function Lista(props) {
     const { client, navigation, updateList, setModalState, visible } = props;
-    const { phones, id: clientId } = client;
+    const { id: clientId, measures } = client;
     const [loading, setLoading] = useState(false);
-    const [dropPhone] = useMutation(Graphql.Mutation.DROP_PHONE);
+    const [dropMeasure] = useMutation(Graphql.Mutation.DROP_MEASURE);
 
     /**
      * Funciones del componente
      */
-    const upPhone = (t) => () => {
+    const update = (m) => () => {
         let params = {
-            phoneId: t.id,
+            measureId: m.id,
+            waist: String(m.waist),
+            height: String(m.height),
             act: true,
-            phoneType: t.phoneType,
-            phone: t.phone,
             clientId,
         };
 
-        navigation.navigate(NameScreens.FORMULARIO_NUEVO_TELEFONO, params);
+        navigation.navigate(NameScreens.NUEVA_MEDIDA, params);
         setModalState(!visible);
     };
-    const delPhone = (t) => async () => {
+    const drop = (m) => async () => {
         try {
             let variables = {
-                phoneId: t.id,
+                measureId: m.id,
                 clientId,
             };
             setLoading(true);
-            await dropPhone({ variables });
+            await dropMeasure({ variables });
             const updateClients = await updateList.refetch();
             const newClients = updateClients.data.getClients;
             updateList.setClientes(newClients);
@@ -140,11 +135,11 @@ export default function Lista(props) {
             console.log(err.message);
         }
     };
-    const moveToNewPhone = () => {
+    const add = () => {
         let params = {
             clientId,
         };
-        navigation.navigate(NameScreens.FORMULARIO_NUEVO_TELEFONO, params);
+        navigation.navigate(NameScreens.NUEVA_MEDIDA, params);
         setModalState(!visible);
     };
 
@@ -158,24 +153,26 @@ export default function Lista(props) {
             <MaterialCommunityIcons name="new-box" size={40} color="#FE5F55" />
         ),
         style: styles.newPhoneButton,
-        onPress: moveToNewPhone,
+        onPress: add,
     };
 
     return (
         <>
-            <Text style={styles.titulo}>Telefonos</Text>
+            <Text style={styles.titulo}>Medidas</Text>
             <View style={styles.contenedor}>
                 <Button {...newPhoneArgs} />
                 <ScrollView>
-                    {phones.map(({ isMain: main, ...t }) => (
-                        <View key={t.id} {...TargetaTelefonoArgs}>
-                            <TouchableOpacity onPress={OpenInPhone(t.phone)}>
-                                <Text style={styles.cabecera}>{t.phone}</Text>
-                            </TouchableOpacity>
-                            <Text style={styles.isMain}>{isMain(main)}</Text>
+                    {measures.map((m) => (
+                        <View key={m.id} {...TargetaTelefonoArgs}>
+                            <Text style={styles.cabecera}>
+                                altura: {m.height}
+                            </Text>
+                            <Text style={styles.cabecera}>
+                                cintura: {m.waist}
+                            </Text>
                             <View style={styles.botonera}>
-                                <BotonIcono {...actArgs} action={upPhone(t)} />
-                                <BotonIcono {...eliArgs} action={delPhone(t)} />
+                                <BotonIcono {...actArgs} action={update(m)} />
+                                <BotonIcono {...eliArgs} action={drop(m)} />
                             </View>
                         </View>
                     ))}
@@ -187,9 +184,9 @@ export default function Lista(props) {
 
 const Graphql = {
     Mutation: {
-        DROP_PHONE: gql`
-            mutation($phoneId: ID!, $clientId: ID!) {
-                dropPhone(phoneId: $phoneId, clientId: $clientId)
+        DROP_MEASURE: gql`
+            mutation($measureId: ID!, $clientId: ID!) {
+                dropMeasure(measureId: $measureId, clientId: $clientId)
             }
         `,
     },
