@@ -1,18 +1,10 @@
 import React, { useState } from "react";
-import {
-    StyleSheet,
-    Text,
-    View,
-    TouchableOpacity,
-    Linking,
-} from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
+import BotonIcono from "./BotonIcono";
 import { useMutation } from "@apollo/react-hooks";
-import { BotonIcono } from ".";
 import Cargando from "./Cargando";
 import Button from "./Button";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import OpenInPhone from "../utils/OpenInPhone";
 
 import * as NameScreens from "../navigations/NameScreens";
 import { gql } from "apollo-boost";
@@ -155,13 +147,16 @@ export default function Lista(props) {
         style: styles.newPhoneButton,
         onPress: add,
     };
+    let scrollArgs = {
+        showsVerticalScrollIndicator: false,
+    };
 
     return (
         <>
             <Text style={styles.titulo}>Medidas</Text>
             <View style={styles.contenedor}>
                 <Button {...newPhoneArgs} />
-                <ScrollView>
+                <ScrollView {...scrollArgs}>
                     {measures.map((m) => (
                         <View key={m.id} {...TargetaTelefonoArgs}>
                             <Text style={styles.cabecera}>

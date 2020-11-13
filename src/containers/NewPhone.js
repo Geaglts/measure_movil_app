@@ -4,10 +4,10 @@ import RadioButton from "../components/RadioButton";
 import Button from "../components/Button";
 import { gql } from "apollo-boost";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { HOME_NAVIGATOR } from "../navigations/NameScreens";
+import * as NameScreens from "../navigations/NameScreens";
 
-const COLOR = "#E1F5FE";
-const BG_COLOR = "#01579B";
+const COLOR = "#FE5F55";
+const BG_COLOR = "#D6D1B1";
 
 let changeButtonText = (act = false) => (act ? "Actualizar" : "Agregar");
 
@@ -54,7 +54,7 @@ export default function NewPhone({ route, navigation }) {
                 variables["client"] = clientId;
                 await addPhone({ variables });
             }
-            navigation.navigate(HOME_NAVIGATOR);
+            navigation.navigate(NameScreens.HOME_NAVIGATOR);
         } catch (err) {
             console.log(err.message);
         }
@@ -76,6 +76,7 @@ export default function NewPhone({ route, navigation }) {
         PROP: phoneTypes,
         selected: setPhoneType,
         initial: phoneTypeParam.id,
+        color: "#FE5F55",
     };
 
     let TextButtonProps = {
@@ -155,15 +156,16 @@ const styles = StyleSheet.create({
     },
     txtNewPhone: {
         color: COLOR,
-        fontSize: 28,
+        fontSize: 30,
         fontWeight: "bold",
-        marginTop: 30,
-        marginLeft: 10,
+        marginTop: 35,
+        marginLeft: 30,
     },
     textInput: {
         color: COLOR,
         fontSize: 22,
-        marginHorizontal: 10,
+        marginHorizontal: 30,
+        backgroundColor: "#EEF5DB",
         marginTop: 15,
         borderWidth: 2,
         borderColor: COLOR,
@@ -171,7 +173,7 @@ const styles = StyleSheet.create({
         borderRadius: 3,
     },
     RBContainer: {
-        marginLeft: 10,
+        marginLeft: 30,
         marginTop: 15,
     },
     txtPhoneType: {
@@ -183,14 +185,14 @@ const styles = StyleSheet.create({
     button: {
         marginTop: 15,
         backgroundColor: COLOR,
-        padding: 10,
-        marginHorizontal: 30,
+        padding: 6,
+        marginHorizontal: 90,
         borderRadius: 4,
     },
     textButton: {
         color: BG_COLOR,
         fontWeight: "bold",
-        fontSize: 20,
+        fontSize: 24,
         textAlign: "center",
     },
 });

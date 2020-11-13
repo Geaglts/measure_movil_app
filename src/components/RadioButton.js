@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 
+let COLOR = "#E1F5FE";
+
 const styles = StyleSheet.create({
     container: {
         marginBottom: 10,
@@ -30,8 +32,6 @@ const styles = StyleSheet.create({
         backgroundColor: COLOR,
     },
 });
-
-let COLOR = "#E1F5FE";
 
 export default function (props) {
     const { PROP, selected, initial, color, ...rest } = props;

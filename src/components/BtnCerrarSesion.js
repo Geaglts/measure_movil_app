@@ -14,6 +14,6 @@ const styles = StyleSheet.create({
         fontSize: 23,
         textTransform: "capitalize",
         fontWeight: "bold",
-        color: "#2ba6ff",
+        color: "#F0B67F",
     },
 });

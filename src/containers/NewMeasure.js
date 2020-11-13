@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
-const COLOR = "#E1F5FE";
-const BG_COLOR = "#01579B";
+const COLOR = "#FE5F55";
+const BG_COLOR = "#D6D1B1";
 
 import Button from "../components/Button";
 import { HOME_NAVIGATOR } from "../navigations/NameScreens";
@@ -133,32 +133,51 @@ const styles = StyleSheet.create({
     },
     txtNewMeasure: {
         color: COLOR,
-        fontSize: 28,
+        fontSize: 32,
         fontWeight: "bold",
         marginTop: 30,
-        marginLeft: 10,
+        marginLeft: 30,
     },
     textInput: {
         color: COLOR,
         fontSize: 22,
-        marginHorizontal: 10,
+        marginHorizontal: 30,
+        backgroundColor: "#EEF5DB",
         marginTop: 15,
         borderWidth: 2,
         borderColor: COLOR,
         padding: 10,
         borderRadius: 3,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
+
+        elevation: 2,
     },
     button: {
-        marginTop: 15,
+        marginTop: 30,
         backgroundColor: COLOR,
-        padding: 10,
-        marginHorizontal: 30,
+        padding: 8,
+        marginHorizontal: 90,
         borderRadius: 4,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
     },
     textButton: {
         color: BG_COLOR,
         fontWeight: "bold",
-        fontSize: 20,
+        fontSize: 24,
         textAlign: "center",
     },
 });

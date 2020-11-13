@@ -1,9 +1,9 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet, Text } from "react-native";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 export default function BotonIcono({ children, ...props }) {
-    let { iconoArgs, label, action, ...rest } = props;
+    let { iconoArgs, action, ...rest } = props;
 
     /**
      * Argumentos de los componentes
@@ -27,5 +27,4 @@ const styles = StyleSheet.create({
     contenedor_boton: {
         flexDirection: "row",
     },
-    label: { fontSize: 22, fontWeight: "bold", marginRight: 5 },
 });

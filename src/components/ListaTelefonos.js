@@ -7,7 +7,7 @@ import {
     ScrollView,
 } from "react-native";
 import { useMutation } from "@apollo/react-hooks";
-import { BotonIcono } from ".";
+import BotonIcono from "./BotonIcono";
 import Cargando from "./Cargando";
 import Button from "./Button";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -159,13 +159,16 @@ export default function Lista(props) {
         style: styles.newPhoneButton,
         onPress: moveToNewPhone,
     };
+    let scrollArgs = {
+        showsVerticalScrollIndicator: false,
+    };
 
     return (
         <>
             <Text style={styles.titulo}>Telefonos</Text>
             <View style={styles.contenedor}>
                 <Button {...newPhoneArgs} />
-                <ScrollView>
+                <ScrollView {...scrollArgs}>
                     {phones.map(({ isMain: main, ...t }) => (
                         <View key={t.id} {...TargetaTelefonoArgs}>
                             <TouchableOpacity onPress={OpenInPhone(t.phone)}>

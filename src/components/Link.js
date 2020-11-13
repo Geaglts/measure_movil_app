@@ -12,7 +12,7 @@ export default function Link({ label, ...rest }) {
 
 const styles = StyleSheet.create({
     link_text: {
-        color: "#2ba6ff",
+        color: "#FE5F55",
         fontSize: 18,
         textDecorationLine: "underline",
     },

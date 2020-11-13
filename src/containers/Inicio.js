@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-    StyleSheet,
-    Text,
-    View,
-    TouchableOpacity,
-    TextInput,
-    ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import TargetaCliente from "./TargetaCliente";
 import * as ApolloActions from "@apollo/react-hooks";
@@ -38,19 +32,19 @@ const styles = StyleSheet.create({
         elevation: 9,
     },
     newClientButtonGradient: {
-        backgroundColor: "#2ba6ff",
+        backgroundColor: "#F0B67F",
         justifyContent: "center",
         alignItems: "center",
         height: 60,
         width: 60,
         borderRadius: 100,
         borderWidth: 2,
-        borderColor: "#fff",
+        borderColor: "#F0B67F",
     },
     newClientButtonText: {
         fontSize: 42,
         fontWeight: "bold",
-        color: "#FE5F55",
+        color: "#EEF5DB",
     },
     searchBar: {
         width: "100%",
@@ -116,10 +110,12 @@ export default function Inicio({ navigation, ...rest }) {
      */
     useEffect(() => {
         const unsubscribe = navigation.addListener("focus", async () => {
-            if (clients) {
-                const { data } = await clients.refetch();
-                setClientes(data.getClients);
-            }
+            setTimeout(async () => {
+                if (clients) {
+                    const { data } = await clients.refetch();
+                    setClientes(data.getClients);
+                }
+            }, 400);
         });
 
         return unsubscribe;
@@ -152,7 +148,7 @@ export default function Inicio({ navigation, ...rest }) {
         onPress: addnewClient,
     };
     let newClientButtonGArgs = {
-        colors: COLOR_GRADIENTS,
+        colors: ["#FE5F55", "#F0B67F"],
         style: styles.newClientButtonGradient,
     };
     let newClientButtonTArgs = {

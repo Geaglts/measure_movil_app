@@ -1,8 +1,9 @@
 import React from "react";
 import { gql } from "apollo-boost";
-import { StyleSheet, Text, Image } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { deleteToken } from "../../token";
-import { ContenedorEstandar, Imagen } from "../components";
+import ContenedorEstandar from "../components/ContenedorEstandar";
+import Imagen from "../components/Imagen";
 import BtnCerrarSesion from "../components/BtnCerrarSesion";
 import { useQuery } from "@apollo/react-hooks";
 import { AUTH_LOADING } from "../navigations/NameScreens";
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
     correo: {
         fontSize: 24,
         fontWeight: "bold",
-        color: "#2ba6ff",
+        color: "#F0B67F",
     },
     containerBtnCerrarSesion: {
         width: "100%",

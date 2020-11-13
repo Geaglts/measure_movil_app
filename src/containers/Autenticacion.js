@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import { StyleSheet, KeyboardAvoidingView, TextInput } from "react-native";
-import { Cargando, ContenedorEstandar, Imagen } from "../components";
+import ContenedorEstandar from "../components/ContenedorEstandar";
+import Cargando from "../components/Cargando";
 import Button from "../components/Button";
+import Imagen from "../components/Imagen";
 import Link from "../components/Link";
 import { gql } from "apollo-boost";
 import { useMutation } from "@apollo/react-hooks";
 import * as TokenActions from "../../token";
 import * as Names from "../navigations/NameScreens";
-import Toast from "../features/messageInScreen";
+import Toast from "../utils/Toast";
 
 /**
  * Constantes
  */
-const COLOR = "#E1F5FE";
-const BG_COLOR = "#00B0FF";
+const COLOR = "#F0B67F";
+const BG_COLOR = "#EEF5DB";
 const LOGIN = "login";
 const REGISTER = "register";
 
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 22,
         fontWeight: "bold",
-        color: BG_COLOR,
+        color: "#FE5F55",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 25,
-        backgroundColor: COLOR,
+        backgroundColor: "#FE5F55",
         paddingVertical: 10,
         paddingHorizontal: 30,
         borderRadius: 4,
@@ -88,14 +90,14 @@ let EmailArgs = {
     autoCapitalize: "none",
     placeholder: "correo electronico",
     style: styles.input,
-    placeholderTextColor: "#777777",
+    placeholderTextColor: "#EEF5DB",
 };
 
 let PasswordArgs = {
     autoCapitalize: "none",
     placeholder: "contraseña",
     style: styles.input,
-    placeholderTextColor: "#777777",
+    placeholderTextColor: "#EEF5DB",
     secureTextEntry: true,
 };
 

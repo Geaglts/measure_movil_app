@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Image } from "react-native";
 
 export default function Imagen({ ...props }) {
-    return <Image {...props} style={{ ...styles.imagen }} />;
+    return <Image {...props} style={styles.imagen} />;
 }
 
 const styles = StyleSheet.create({

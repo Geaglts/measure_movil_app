@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { getToken } from "../../token";
-import { ContenedorEstandar, Imagen, Cargando } from "../components";
+import ContenedorEstandar from "../components/ContenedorEstandar";
+import Cargando from "../components/Cargando";
+import Imagen from "../components/Imagen";
 import * as NameScreens from "../navigations/NameScreens";
 
 let ImagenArgs = {
