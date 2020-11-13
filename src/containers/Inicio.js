@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
     },
     newClientButton: {
         position: "absolute",
-        bottom: 14,
-        right: 14,
+        bottom: 10,
+        right: 10,
         zIndex: 1,
         shadowColor: "#000",
         shadowOffset: {
@@ -109,13 +109,17 @@ export default function Inicio({ navigation, ...rest }) {
      * Actualiza la lista de clientes
      */
     useEffect(() => {
-        const unsubscribe = navigation.addListener("focus", async () => {
-            setTimeout(async () => {
-                if (clients) {
-                    const { data } = await clients.refetch();
-                    setClientes(data.getClients);
-                }
-            }, 400);
+        const unsubscribe = navigation.addListener("focus", () => {
+            try {
+                clients
+                    .refetch()
+                    .then(({ data }) => {
+                        setClientes(data.getClients);
+                    })
+                    .catch((e) => console.log(e));
+            } catch (e) {
+                console.log(e);
+            }
         });
 
         return unsubscribe;
@@ -129,7 +133,7 @@ export default function Inicio({ navigation, ...rest }) {
     const handleChange = (v) => setSearchValue(v);
     const addnewClient = () => {
         try {
-            navigation.navigate(NameScreens.NUEVO_CLIENTE);
+            navigation.navigate(NameScreens.NEW_CLIENTE_SCREEN);
         } catch (e) {
             console.log(e.message);
         }

@@ -102,7 +102,7 @@ export default function TargetaCliente({ navigation, ...props }) {
             name: name,
             clientId: id,
         };
-        navigation.navigate(NameScreens.ACTUALIZAR_CLIENTE, params);
+        navigation.navigate(NameScreens.UPDATE_CLIENT_SCREEN, params);
     };
     const delClient = async () => {
         try {

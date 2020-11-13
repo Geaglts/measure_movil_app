@@ -54,7 +54,7 @@ export default function NewPhone({ route, navigation }) {
                 variables["client"] = clientId;
                 await addPhone({ variables });
             }
-            navigation.navigate(NameScreens.HOME_NAVIGATOR);
+            navigation.navigate(NameScreens.INICIO_SCREEN);
         } catch (err) {
             console.log(err.message);
         }

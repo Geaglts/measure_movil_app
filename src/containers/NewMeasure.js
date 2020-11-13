@@ -7,7 +7,7 @@ const COLOR = "#FE5F55";
 const BG_COLOR = "#D6D1B1";
 
 import Button from "../components/Button";
-import { HOME_NAVIGATOR } from "../navigations/NameScreens";
+import { INICIO_SCREEN } from "../navigations/NameScreens";
 
 let changeButtonText = (act = false) => (act ? "Actualizar" : "Agregar");
 
@@ -46,10 +46,10 @@ export default function NewMeasure({ route, navigation, ...rest }) {
             if (act) {
                 variables["measureId"] = route.params.measureId;
                 await updateMeasure({ variables });
-                navigation.navigate(HOME_NAVIGATOR);
+                navigation.navigate(INICIO_SCREEN);
             } else {
                 await addMeasure({ variables });
-                navigation.navigate(HOME_NAVIGATOR);
+                navigation.navigate(INICIO_SCREEN);
             }
         } catch (err) {
             console.log(err);

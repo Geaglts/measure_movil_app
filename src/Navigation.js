@@ -12,14 +12,14 @@ const StackNavigatorProps = {
 export default () => {
     return (
         <Stack.Navigator {...StackNavigatorProps}>
-            <Stack.Screen {...StackScreens.VistaAuthLoading} />
-            <Stack.Screen {...StackScreens.VistaLoginRegistro} />
-            <Stack.Screen {...StackScreens.VistaHomeNavigator} />
-            <Stack.Screen {...StackScreens.VistaNuevoCliente} />
-            <Stack.Screen {...StackScreens.VistaNuevoTelefono} />
-            <Stack.Screen {...StackScreens.VistaActualizarCliente} />
-            <Stack.Screen {...StackScreens.VistaNuevaMedida} />
-            <Stack.Screen {...StackScreens.VistaMensajesScreen} />
+            <Stack.Screen {...StackScreens.VerificarSesionScreen} />
+            <Stack.Screen {...StackScreens.AutenticacionScreen} />
+            <Stack.Screen {...StackScreens.InicioScreen} />
+            <Stack.Screen {...StackScreens.NewClientScreen} />
+            <Stack.Screen {...StackScreens.NewPhoneScreen} />
+            <Stack.Screen {...StackScreens.UpdateClientScreen} />
+            <Stack.Screen {...StackScreens.NewMeasureScreen} />
+            <Stack.Screen {...StackScreens.MessagesScreen} />
         </Stack.Navigator>
     );
 };

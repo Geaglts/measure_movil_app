@@ -1,8 +1,8 @@
-export const AUTH_LOADING = "AuthLoading";
-export const LOGIN_REGISTRO = "LoginRegistro";
-export const HOME_NAVIGATOR = "HomeNavigator";
-export const NUEVO_CLIENTE = "NuevoCliente";
-export const FORMULARIO_NUEVO_TELEFONO = "FormularioTelefono";
-export const ACTUALIZAR_CLIENTE = "UpdateClientForm";
-export const NUEVA_MEDIDA = "NuevaMedidaScreen";
-export const VISTA_MENSAJES = "VistaMensajes";
+export const VERIFICAR_SESION_SCREEN = "VerificarSesionScreen";
+export const AUTENTICACION_SCREEN = "AutenticacionScreen";
+export const INICIO_SCREEN = "InicioScreen";
+export const NEW_CLIENTE_SCREEN = "NewClientScreen";
+export const NEW_PHONE_SCREEN = "NewPhone";
+export const UPDATE_CLIENT_SCREEN = "UpdateClientScreen";
+export const NEW_MEASURE_SCREEN = "NewMeasureScreen";
+export const MESSAGES_SCREEN = "MessagesScreen";

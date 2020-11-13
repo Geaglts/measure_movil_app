@@ -6,7 +6,7 @@ import ContenedorEstandar from "../components/ContenedorEstandar";
 import Imagen from "../components/Imagen";
 import BtnCerrarSesion from "../components/BtnCerrarSesion";
 import { useQuery } from "@apollo/react-hooks";
-import { AUTH_LOADING } from "../navigations/NameScreens";
+import * as NameScreens from "../navigations/NameScreens";
 
 /**
  * Argumentos de los componentes
@@ -28,7 +28,7 @@ export default function MisDatos({ navigation }) {
      */
     const dropSession = async () => {
         await deleteToken();
-        navigation.navigate(AUTH_LOADING);
+        navigation.navigate(NameScreens.VERIFICAR_SESION_SCREEN);
     };
 
     /**

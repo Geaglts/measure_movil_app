@@ -7,7 +7,7 @@ import {
     TextInput,
 } from "react-native";
 import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
-import { HOME_NAVIGATOR } from "../navigations/NameScreens";
+import { INICIO_SCREEN } from "../navigations/NameScreens";
 import * as Colors from "../constants/colors";
 
 export default function VistaMensajes({ route, navigation }) {
@@ -32,7 +32,7 @@ export default function VistaMensajes({ route, navigation }) {
     };
 
     const regresarAContactos = () => {
-        navigation.navigate(HOME_NAVIGATOR);
+        navigation.navigate(INICIO_SCREEN);
     };
 
     return (

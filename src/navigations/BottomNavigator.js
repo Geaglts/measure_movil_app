@@ -8,14 +8,14 @@ const Tab = createBottomTabNavigator();
 const vistas = ["Home", "ListaDeClientes", "About"];
 
 const tabBarOPtions = {
-    activeTintColor: "#2ba6ff",
+    activeTintColor: "#FE5F55",
     inactiveTintColor: "gray",
     labelStyle: {
         fontSize: 17,
         fontWeight: "bold",
     },
     tabStyle: {
-        paddingTop: 6,
+        paddingTop: 5,
     },
 };
 
@@ -42,7 +42,7 @@ const BottomNavigator = () => {
                 name={vistas[2]}
                 component={About}
                 options={{
-                    title: "Acerca de",
+                    title: "Cuenta",
                     ...defaultScreenOptions,
                 }}
             />

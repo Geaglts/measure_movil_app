@@ -15,9 +15,9 @@ export default function VerificarSesion({ navigation }) {
             try {
                 let token = await getToken();
                 if (token) {
-                    navigation.navigate(NameScreens.HOME_NAVIGATOR);
+                    navigation.navigate(NameScreens.INICIO_SCREEN);
                 } else {
-                    navigation.navigate(NameScreens.LOGIN_REGISTRO);
+                    navigation.navigate(NameScreens.AUTENTICACION_SCREEN);
                 }
             } catch (err) {
                 console.log(err.message);

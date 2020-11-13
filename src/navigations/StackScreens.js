@@ -11,36 +11,36 @@ import {
 import BottomNavigator from "./BottomNavigator";
 
 export default {
-    VistaAuthLoading: {
-        name: NameScreens.AUTH_LOADING,
+    VerificarSesionScreen: {
+        name: NameScreens.VERIFICAR_SESION_SCREEN,
         component: AuthLoading,
     },
-    VistaLoginRegistro: {
-        name: NameScreens.LOGIN_REGISTRO,
+    AutenticacionScreen: {
+        name: NameScreens.AUTENTICACION_SCREEN,
         component: LoginRegistro,
     },
-    VistaHomeNavigator: {
-        name: NameScreens.HOME_NAVIGATOR,
+    InicioScreen: {
+        name: NameScreens.INICIO_SCREEN,
         component: BottomNavigator,
     },
-    VistaNuevoCliente: {
-        name: NameScreens.NUEVO_CLIENTE,
+    NewClientScreen: {
+        name: NameScreens.NEW_CLIENTE_SCREEN,
         component: NuevoCliente,
     },
-    VistaNuevoTelefono: {
-        name: NameScreens.FORMULARIO_NUEVO_TELEFONO,
+    NewPhoneScreen: {
+        name: NameScreens.NEW_PHONE_SCREEN,
         component: NuevoTelefono,
     },
-    VistaActualizarCliente: {
-        name: NameScreens.ACTUALIZAR_CLIENTE,
+    UpdateClientScreen: {
+        name: NameScreens.UPDATE_CLIENT_SCREEN,
         component: UpdateClientForm,
     },
-    VistaNuevaMedida: {
-        name: NameScreens.NUEVA_MEDIDA,
+    NewMeasureScreen: {
+        name: NameScreens.NEW_MEASURE_SCREEN,
         component: NuevaMedida,
     },
-    VistaMensajesScreen: {
-        name: NameScreens.VISTA_MENSAJES,
+    MessagesScreen: {
+        name: NameScreens.MESSAGES_SCREEN,
         component: VistaMensajes,
     },
 };

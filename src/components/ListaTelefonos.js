@@ -120,7 +120,7 @@ export default function Lista(props) {
             clientId,
         };
 
-        navigation.navigate(NameScreens.FORMULARIO_NUEVO_TELEFONO, params);
+        navigation.navigate(NameScreens.NEW_PHONE_SCREEN, params);
         setModalState(!visible);
     };
     const delPhone = (t) => async () => {
@@ -143,7 +143,7 @@ export default function Lista(props) {
         let params = {
             clientId,
         };
-        navigation.navigate(NameScreens.FORMULARIO_NUEVO_TELEFONO, params);
+        navigation.navigate(NameScreens.NEW_PHONE_SCREEN, params);
         setModalState(!visible);
     };
 

@@ -5,8 +5,8 @@ import Button from "../components/Button";
 import { useMutation } from "@apollo/react-hooks";
 import * as NameScreens from "../navigations/NameScreens";
 
-const COLOR = "#E1F5FE";
-const BG_COLOR = "#01579B";
+const COLOR = "#C7EFCF";
+const BG_COLOR = "#FE5F55";
 
 export default function UpdateClient({ route, navigation, ...rest }) {
     const [name, setName] = useState(route.params.name || null);
@@ -32,7 +32,7 @@ export default function UpdateClient({ route, navigation, ...rest }) {
             };
 
             await updateClient({ variables });
-            navigation.navigate(NameScreens.HOME_NAVIGATOR);
+            navigation.navigate(NameScreens.INICIO_SCREEN);
         } catch (err) {
             console.log(err);
         }
@@ -89,32 +89,34 @@ const styles = StyleSheet.create({
     },
     txtNewPhone: {
         color: COLOR,
-        fontSize: 28,
+        fontSize: 34,
         fontWeight: "bold",
-        marginTop: 30,
-        marginLeft: 10,
+        marginTop: 35,
+        marginLeft: 30,
     },
     textInput: {
-        color: COLOR,
-        fontSize: 22,
-        marginHorizontal: 10,
+        color: BG_COLOR,
+        fontSize: 24,
+        marginHorizontal: 30,
+        backgroundColor: COLOR,
         marginTop: 15,
         borderWidth: 2,
         borderColor: COLOR,
         padding: 10,
         borderRadius: 3,
+        fontWeight: "bold",
     },
     button: {
-        marginTop: 15,
+        marginTop: 30,
         backgroundColor: COLOR,
-        padding: 10,
-        marginHorizontal: 30,
+        padding: 6,
+        marginHorizontal: 90,
         borderRadius: 4,
     },
     textButton: {
         color: BG_COLOR,
         fontWeight: "bold",
-        fontSize: 20,
+        fontSize: 24,
         textAlign: "center",
     },
 });

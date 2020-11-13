@@ -108,7 +108,7 @@ export default function Lista(props) {
             clientId,
         };
 
-        navigation.navigate(NameScreens.NUEVA_MEDIDA, params);
+        navigation.navigate(NameScreens.NEW_MEASURE_SCREEN, params);
         setModalState(!visible);
     };
     const drop = (m) => async () => {
@@ -131,7 +131,7 @@ export default function Lista(props) {
         let params = {
             clientId,
         };
-        navigation.navigate(NameScreens.NUEVA_MEDIDA, params);
+        navigation.navigate(NameScreens.NEW_MEASURE_SCREEN, params);
         setModalState(!visible);
     };
 

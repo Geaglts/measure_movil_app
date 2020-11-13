@@ -157,7 +157,7 @@ export default function Autenticacion({ navigation }) {
                         const response = await login({ variables });
                         const token = response.data.login.token;
                         await TokenActions.setToken(token);
-                        navigation.navigate(Names.AUTH_LOADING);
+                        navigation.navigate(Names.VERIFICAR_SESION_SCREEN);
                     }
                     break;
                 case REGISTER:

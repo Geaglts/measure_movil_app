@@ -162,7 +162,7 @@ export default function NuevoCliente({ navigation }) {
             };
 
             await addClient({ variables });
-            navigation.navigate(NameScreens.HOME_NAVIGATOR);
+            navigation.navigate(NameScreens.INICIO_SCREEN);
         } catch (e) {
             Toast("Verifica tus campos");
         }
