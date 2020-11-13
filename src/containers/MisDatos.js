@@ -2,7 +2,7 @@ import React from "react";
 import { gql } from "apollo-boost";
 import { StyleSheet, Text, Image } from "react-native";
 import { deleteToken } from "../../token";
-import { ContenedorEstandar } from "../components";
+import { ContenedorEstandar, Imagen } from "../components";
 import BtnCerrarSesion from "../components/BtnCerrarSesion";
 import { useQuery } from "@apollo/react-hooks";
 import { AUTH_LOADING } from "../navigations/NameScreens";
@@ -40,11 +40,10 @@ export default function MisDatos({ navigation }) {
         style: styles.containerBtnCerrarSesion,
         onPress: dropSession,
     };
-    imagen["style"] = styles.imagen;
 
     return (
         <ContenedorEstandar>
-            <Image {...imagen} />
+            <Imagen {...imagen} />
             <Text {...usuarioTxtArgs}>{email}</Text>
             <BtnCerrarSesion {...btnCerrarSesionArgs} />
         </ContenedorEstandar>

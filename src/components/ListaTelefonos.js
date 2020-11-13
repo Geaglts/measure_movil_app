@@ -4,9 +4,8 @@ import {
     Text,
     View,
     TouchableOpacity,
-    Linking,
+    ScrollView,
 } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
 import { useMutation } from "@apollo/react-hooks";
 import { BotonIcono } from ".";
 import Cargando from "./Cargando";

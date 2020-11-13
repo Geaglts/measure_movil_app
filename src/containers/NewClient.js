@@ -7,8 +7,8 @@ import * as NameScreens from "../navigations/NameScreens";
 import * as ApolloHooks from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
-const COLOR = "#DF2935";
-const BG_COLOR = "#FDCA40";
+const COLOR = "#FE5F55";
+const BG_COLOR = "#D6D1B1";
 
 const styles = StyleSheet.create({
     container: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         fontSize: 22,
         fontWeight: "bold",
-        color: BG_COLOR,
+        color: "#EEF5DB",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     button: {
         marginHorizontal: 100,
         marginTop: 25,
-        backgroundColor: COLOR,
+        backgroundColor: "#EEF5DB",
         paddingVertical: 10,
         paddingHorizontal: 30,
         borderRadius: 4,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     textButton: {
-        color: BG_COLOR,
+        color: "#FE5F55",
         fontWeight: "bold",
         fontSize: 20,
         textAlign: "center",
@@ -164,7 +164,7 @@ export default function NuevoCliente({ navigation }) {
             await addClient({ variables });
             navigation.navigate(NameScreens.HOME_NAVIGATOR);
         } catch (e) {
-            Toast(e.message.replace("GraphQL error: Error:", ""));
+            Toast("Verifica tus campos");
         }
     };
 
