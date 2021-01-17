@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
 import { INICIO_SCREEN } from "../navigations/NameScreens";
-import * as Colors from "../constants/colors";
 
 export default function VistaMensajes({ route, navigation }) {
     const [values, setValues] = useState({
@@ -63,11 +62,7 @@ const Header = ({ label, ...rest }) => {
 const BotonRegresar = ({ ...rest }) => {
     return (
         <TouchableOpacity {...rest}>
-            <Ionicons
-                name="md-arrow-round-back"
-                size={30}
-                color={Colors.WHITE}
-            />
+            <Ionicons name="md-arrow-round-back" size={30} color={"#ffffff"} />
         </TouchableOpacity>
     );
 };
@@ -98,7 +93,7 @@ const Controles = ({
             <TextInput
                 placeholder="Escribe un mensaje"
                 autoCapitalize={"none"}
-                placeholderTextColor={Colors.WHITE}
+                placeholderTextColor="#ffffff"
                 style={{ ...styles.mensajeInput }}
                 onChangeText={onChangeText}
                 value={value}
@@ -129,8 +124,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#feffea",
     },
     headerView: {
-        backgroundColor: Colors.BLUE_COLOR,
-        color: Colors.WHITE,
+        backgroundColor: "red",
+        color: "#ffffff",
         padding: 10,
         paddingTop: 25,
         fontSize: 24,
@@ -158,7 +153,7 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     enviarBtn: {
-        backgroundColor: Colors.BLUE_COLOR,
+        backgroundColor: "red",
         height: 40,
         width: 40,
         justifyContent: "center",
@@ -172,8 +167,8 @@ const styles = StyleSheet.create({
         left: 6,
     },
     mensajeInput: {
-        backgroundColor: Colors.BLUE_COLOR,
-        color: Colors.WHITE,
+        backgroundColor: "red",
+        color: "#ffffff",
         width: 325,
         marginLeft: 15,
         paddingVertical: 10,

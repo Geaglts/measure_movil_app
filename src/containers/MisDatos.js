@@ -21,8 +21,7 @@ export default function MisDatos({ navigation }) {
      */
     const me = useQuery(Graphql.Query.ME);
     if (me.loading) return null;
-    me.refetch();
-    let { email } = me.data.me;
+
     /**
      * Funciones del componente
      */
@@ -35,7 +34,7 @@ export default function MisDatos({ navigation }) {
      * Argumentos de los componentes
      */
     let usuarioTxtArgs = {
-        style: styles.correo,
+        style: styles.userName,
     };
     let btnCerrarSesionArgs = {
         style: styles.containerBtnCerrarSesion,
@@ -45,7 +44,7 @@ export default function MisDatos({ navigation }) {
     return (
         <ContenedorEstandar>
             <Imagen {...imagen} />
-            <Text {...usuarioTxtArgs}>{email}</Text>
+            <Text {...usuarioTxtArgs}>{me.data.me.userName}</Text>
             <BtnCerrarSesion {...btnCerrarSesionArgs} />
         </ContenedorEstandar>
     );
@@ -57,7 +56,7 @@ const Graphql = {
             {
                 me {
                     id
-                    email
+                    userName
                 }
             }
         `,
@@ -71,10 +70,12 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
         marginBottom: 15,
     },
-    correo: {
+    userName: {
         fontSize: 24,
         fontWeight: "bold",
         color: "#F0B67F",
+        textTransform: "capitalize",
+        letterSpacing: 1,
     },
     containerBtnCerrarSesion: {
         width: "100%",

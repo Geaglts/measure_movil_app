@@ -88,7 +88,9 @@ export default function NewMeasure({ route, navigation, ...rest }) {
 
     return (
         <View style={{ ...styles.container }}>
-            <Text style={styles.txtNewMeasure}>Nueva medida</Text>
+            <Text style={styles.txtNewMeasure}>
+                {act ? "Actualizar" : "Nueva"} medida
+            </Text>
             <TextInput {...AlturaInputProps} />
             <TextInput {...CinturaInputProps} />
             <Button {...ButtonProps} />

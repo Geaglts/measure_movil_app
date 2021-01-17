@@ -30,7 +30,6 @@ export default function UpdateClient({ route, navigation, ...rest }) {
                 name,
                 clientId,
             };
-
             await updateClient({ variables });
             navigation.navigate(NameScreens.INICIO_SCREEN);
         } catch (err) {
@@ -76,7 +75,10 @@ const Graphql = {
     Mutation: {
         UPDATE_CLIENT: gql`
             mutation($clientId: ID!, $name: String!) {
-                updateClient(clientData: { clientId: $clientId, name: $name })
+                updateClient(input: { clientId: $clientId, name: $name }) {
+                    id
+                    name
+                }
             }
         `,
     },

@@ -160,8 +160,8 @@ export default function NuevoCliente({ navigation }) {
                 waist: parseInt(values.waist),
                 phoneType: phoneType,
             };
-
-            await addClient({ variables });
+            const { data } = await addClient({ variables });
+            Toast(`Se agrego a: ${data.addClient.name}.`);
             navigation.navigate(NameScreens.INICIO_SCREEN);
         } catch (e) {
             Toast("Verifica tus campos");
@@ -227,7 +227,10 @@ const Graphql = {
                         measures: { height: $height, waist: $waist }
                         phone: { phone: $phone, phoneType: $phoneType }
                     }
-                )
+                ) {
+                    id
+                    name
+                }
             }
         `,
     },

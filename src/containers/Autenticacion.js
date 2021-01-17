@@ -86,9 +86,9 @@ let ImagenArgs = {
     source: require("../../assets/signin.png"),
 };
 
-let EmailArgs = {
+let UserNameArgs = {
     autoCapitalize: "none",
-    placeholder: "correo electronico",
+    placeholder: "nombre de usuario",
     style: styles.input,
     placeholderTextColor: "#EEF5DB",
 };
@@ -105,12 +105,12 @@ let PasswordArgs = {
  * Estados iniciales dependiendo de si es registro o inicio de sesion
  */
 let LoginInputs = {
-    email: "",
+    userName: "",
     password: "",
 };
 
 let RegisterInputs = {
-    email: "",
+    userName: "",
     password: "",
 };
 
@@ -155,18 +155,23 @@ export default function Autenticacion({ navigation }) {
                     {
                         const variables = values;
                         const response = await login({ variables });
-                        const token = response.data.login.token;
-                        await TokenActions.setToken(token);
-                        navigation.navigate(Names.VERIFICAR_SESION_SCREEN);
+                        const userToken = response?.data?.login?.token;
+                        if (userToken) {
+                            await TokenActions.setToken(userToken);
+                            navigation.navigate(Names.VERIFICAR_SESION_SCREEN);
+                        }
                     }
                     break;
                 case REGISTER:
                     {
                         const variables = values;
                         const response = await register({ variables });
-                        console.log(response);
-                        // setVista(LOGIN);
-                        // setValues(currentEntries(LOGIN));
+                        if (response?.data?.register) {
+                            const userName = response.data.register.userName;
+                            Toast(`Bienvenido ${userName}`);
+                            setVista(LOGIN);
+                            setValues(currentEntries(LOGIN));
+                        }
                     }
                     break;
                 default:
@@ -175,6 +180,7 @@ export default function Autenticacion({ navigation }) {
             setLoading(false);
         } catch (err) {
             Toast(err.message.replace("GraphQL error: Error: ", ""));
+            setLoading(false);
         } finally {
             setLoading(false);
         }
@@ -218,8 +224,8 @@ export default function Autenticacion({ navigation }) {
     /**
      * Argumentos de los componentes
      */
-    EmailArgs["value"] = values.email;
-    EmailArgs["onChangeText"] = handleChange("email");
+    UserNameArgs["value"] = values.userName;
+    UserNameArgs["onChangeText"] = handleChange("userName");
     PasswordArgs["value"] = values.password;
     PasswordArgs["onChangeText"] = handleChange("password");
     let ButtonProps = {
@@ -240,7 +246,7 @@ export default function Autenticacion({ navigation }) {
         <ContenedorEstandar>
             <KeyboardAvoidingView {...KeyAvoArgs}>
                 <Imagen {...ImagenArgs} />
-                <TextInput {...EmailArgs} />
+                <TextInput {...UserNameArgs} />
                 <TextInput {...PasswordArgs} />
                 <Button {...ButtonProps} />
                 <Link {...LinkArgs} />
@@ -252,13 +258,13 @@ export default function Autenticacion({ navigation }) {
 const Graphql = {
     Mutation: {
         LOGIN: gql`
-            mutation($email: String!, $password: String!) {
-                login(email: $email, password: $password)
+            mutation($userName: String!, $password: String!) {
+                login(userName: $userName, password: $password)
             }
         `,
         REGISTER: gql`
-            mutation($email: String!, $password: String!) {
-                register(input: { email: $email, password: $password })
+            mutation($userName: String!, $password: String!) {
+                register(input: { userName: $userName, password: $password })
             }
         `,
     },

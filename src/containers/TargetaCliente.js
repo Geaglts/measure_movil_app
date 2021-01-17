@@ -109,7 +109,6 @@ export default function TargetaCliente({ navigation, ...props }) {
             let variables = {
                 clientId: id,
             };
-
             await dropClient({ variables });
             const { data } = await updateList.refetch();
             const newClients = data.getClients;
@@ -185,7 +184,10 @@ const Graphql = {
     Mutation: {
         DROP_CLIENT: gql`
             mutation($clientId: ID!) {
-                dropClient(clientId: $clientId)
+                dropClient(clientId: $clientId) {
+                    id
+                    name
+                }
             }
         `,
     },
