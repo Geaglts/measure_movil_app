@@ -179,7 +179,8 @@ export default function Autenticacion({ navigation }) {
             }
             setLoading(false);
         } catch (err) {
-            Toast(err.message.replace("GraphQL error: Error: ", ""));
+            const stringError = err.toString();
+            Toast(stringError.replace("Error: GraphQL error: ", ""));
             setLoading(false);
         } finally {
             setLoading(false);
