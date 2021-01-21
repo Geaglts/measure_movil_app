@@ -25,6 +25,9 @@
       "supportsTablet": true
     },
     "description": "This is an application for seamstresses, to save measures of her clients.",
-    "githubUrl": "https://github.com/Geaglts/measure_movil_app"
+    "githubUrl": "https://github.com/Geaglts/measure_movil_app",
+    "android": {
+      "package": "com.geagl.measure"
+    }
   }
 }

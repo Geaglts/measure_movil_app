@@ -1,6 +1,6 @@
 import React from "react";
 import { gql } from "apollo-boost";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { deleteToken } from "../../token";
 import ContenedorEstandar from "../components/ContenedorEstandar";
 import Imagen from "../components/Imagen";
@@ -19,7 +19,7 @@ export default function MisDatos({ navigation }) {
     /**
      * Mutaciones y Queries de Graphql
      */
-    const me = useQuery(Graphql.Query.ME);
+    const me = useQuery(Graphql.Query.ME, { fetchPolicy: "no-cache" });
     if (me.loading) return null;
 
     /**
@@ -45,7 +45,9 @@ export default function MisDatos({ navigation }) {
         <ContenedorEstandar>
             <Imagen {...imagen} />
             <Text {...usuarioTxtArgs}>{me.data.me.userName}</Text>
-            <BtnCerrarSesion {...btnCerrarSesionArgs} />
+            <View style={styles.viewBtnCerrar}>
+                <BtnCerrarSesion {...btnCerrarSesionArgs} />
+            </View>
         </ContenedorEstandar>
     );
 }
@@ -78,10 +80,9 @@ const styles = StyleSheet.create({
         letterSpacing: 1,
     },
     containerBtnCerrarSesion: {
-        width: "100%",
-        height: "55%",
         alignItems: "center",
-        justifyContent: "flex-end",
-        marginBottom: 25,
+    },
+    viewBtnCerrar: {
+        marginTop: "70%",
     },
 });
