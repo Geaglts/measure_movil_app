@@ -4,6 +4,7 @@
 
 ### 🏞 FrontEnd
 
+-   Expo
 -   React Native
 -   React Navigation
 -   Formik
