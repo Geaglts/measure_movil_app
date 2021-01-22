@@ -7,8 +7,6 @@
 -   Expo
 -   React Native
 -   React Navigation
--   Formik
--   Yup
 -   Apollo
 
 ### 🏞 BackEnd
